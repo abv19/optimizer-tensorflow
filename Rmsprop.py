@@ -11,6 +11,7 @@
 from tensorflow.python.ops import math_ops,init_ops,array_ops,gen_array_ops,state_ops,control_flow_ops
 from tensorflow.python.training import optimizer
 from tensorflow.python.framework import ops
+
 class Rmsprop(optimizer.Optimizer):
     def __init__(self,learning_rate = 1e-3,init_accumulator = 1.0,alpha = 0.9,use_locking=False,name = "Rmsprop"):
         super(Rmsprop,self).__init__(use_locking,name)
@@ -44,7 +45,7 @@ class Rmsprop(optimizer.Optimizer):
             # Use a Tensor instead of initializer if variable does not have
             # static shape.
             init_constant = gen_array_ops.fill(array_ops.shape(v),
-                                               self._initial_accumulator_value)
+                                               self.init_accumulator)
             return math_ops.cast(init_constant, dtype)
 
         return init
