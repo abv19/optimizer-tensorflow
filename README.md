@@ -6,6 +6,6 @@ create custom optimizer in tensorflow
 * [x] Momentum
 * [x] Adagrad
 * [x] Rmsprop
-* [ ] Adam
+* [x] Adam
 * [ ] PowerSign 
 * [ ] AddSign
